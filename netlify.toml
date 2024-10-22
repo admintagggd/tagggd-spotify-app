@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/callback"
+  to = "/"
+  status = 302
+  force = true
+  query = {path = ":path"}
