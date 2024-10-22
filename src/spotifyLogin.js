@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const SpotifyLogin = () => {
   const [token, setToken] = useState("");
-  const [tracks, setTracks] = useState([]);
 
   const client_id = "144ebf716b5443ef9600a60b86a47ea0"; // Replace with your Client ID
   const redirect_uri =
