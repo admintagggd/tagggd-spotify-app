@@ -32,11 +32,14 @@ const SpotifyLogin = () => {
 
     // Fetch user's top tracks if token exists
     if (token) {
-      fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      fetch(
+        "https://api.spotify.com/v1/me/player/currently-playing?additional_types=episode",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
         .then((response) => response.json())
 
         .catch((error) => console.error("Error fetching top tracks:", error));
