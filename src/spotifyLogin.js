@@ -7,7 +7,7 @@ const SpotifyLogin = () => {
   const redirect_uri = "https://tagggd-spotify.netlify.app/callback"; // Replace with your Redirect URI
   const auth_endpoint = "https://accounts.spotify.com/authorize";
   const response_type = "token";
-  const scope = "user-read-currently-playing"; // You can modify this scope based on your needs
+  const scope = "user-read-currently-playing user-read-playback-state"; // You can modify this scope based on your needs
 
   const getAuthUrl = () => {
     return `${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`;
@@ -32,14 +32,11 @@ const SpotifyLogin = () => {
 
     // Fetch user's top tracks if token exists
     if (token) {
-      fetch(
-        "https://api.spotify.com/v1/me/player/currently-playing?additional_types=episode",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      fetch("https://api.spotify.com/v1/me/player", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((response) => response.json())
 
         .catch((error) => console.error("Error fetching top tracks:", error));
