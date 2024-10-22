@@ -4,8 +4,7 @@ const SpotifyLogin = () => {
   const [token, setToken] = useState("");
 
   const client_id = "144ebf716b5443ef9600a60b86a47ea0"; // Replace with your Client ID
-  const redirect_uri =
-    "https://007c-2a02-8084-282-ef80-5d79-68c1-3882-a6c2.ngrok-free.app/callback"; // Replace with your Redirect URI
+  const redirect_uri = "https://tagggd-spotify.netlify.app/callback"; // Replace with your Redirect URI
   const auth_endpoint = "https://accounts.spotify.com/authorize";
   const response_type = "token";
   const scope = "user-read-currently-playing"; // You can modify this scope based on your needs
