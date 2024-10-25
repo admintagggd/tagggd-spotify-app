@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const SpotifyLogin = () => {
   const [token, setToken] = useState("");
+  const [topTracks, setTopTracks] = useState();
 
   const client_id = "144ebf716b5443ef9600a60b86a47ea0"; // Replace with your Client ID
   const redirect_uri = "https://tagggd-spotify.netlify.app/callback"; // Replace with your Redirect URI
@@ -38,7 +39,9 @@ const SpotifyLogin = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-        .then((response) => response.json())
+        .then((response) => () => {
+          setTopTracks(response.json());
+        })
 
         .catch((error) => console.error("Error fetching top tracks:", error));
     }
@@ -62,6 +65,7 @@ const SpotifyLogin = () => {
       {token && (
         <div>
           <h2>Your Top Tracks</h2>
+          <p>{topTracks}</p>
         </div>
       )}
     </div>
