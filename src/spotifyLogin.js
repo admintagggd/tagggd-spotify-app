@@ -9,7 +9,7 @@ const SpotifyLogin = () => {
   const auth_endpoint = "https://accounts.spotify.com/authorize";
   const response_type = "token";
   const scope =
-    "user-read-currently-playing user-read-playback-state playlist-read-private user-read-playback-position user-library-read"; // You can modify this scope based on your needs
+    "user-read-currently-playing user-read-playback-state playlist-read-private user-library-read"; // You can modify this scope based on your needs
 
   const getAuthUrl = () => {
     return `${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`;
