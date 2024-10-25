@@ -33,7 +33,7 @@ const SpotifyLogin = () => {
 
     // Fetch user's top tracks if token exists
     if (token) {
-      fetch("https://api.spotify.com/v1/me/player", {
+      fetch("https://api.spotify.com/v1/me/player/queue", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
